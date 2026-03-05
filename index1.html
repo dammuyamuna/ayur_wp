@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurima | Essence of Life & Wellness</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-bg': '#f1e8d6',
+                        'brand-dark': '#2c2925',
+                        'brand-accent': '#c4704e',
+                        'brand-green': '#8ca18e',
+                        'brand-card': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling & Body Setup */
+        html { scroll-behavior: smooth; }
+        body { background-color: #f1e8d6; }
+        
+        ::selection {
+            background-color: #c4704e;
+            color: white;
+        }
+
+        /* Hero Glow */
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(241, 232, 214, 0) 70%);
+        }
+
+        /* Meaning Section Background Graphic */
+        .graphic-glow {
+            background: linear-gradient(135deg, #dce5cd 0%, #e2cdab 100%);
+        }
+
+        /* ================= ORGANIC BACKGROUND BLOB ANIMATIONS ================= */
+        @keyframes float-blob-right {
+            0%, 100% { transform: translate(0, 0) rotate(-12deg) scale(1); }
+            33% { transform: translate(-30px, 40px) rotate(-8deg) scale(1.02); }
+            66% { transform: translate(20px, -20px) rotate(-15deg) scale(0.98); }
+        }
+
+        @keyframes float-blob-left {
+            0%, 100% { transform: translate(0, 0) rotate(12deg) scale(1); }
+            33% { transform: translate(40px, -30px) rotate(16deg) scale(0.98); }
+            66% { transform: translate(-20px, 20px) rotate(8deg) scale(1.03); }
+        }
+
+        .blob-right-animate {
+            animation: float-blob-right 25s ease-in-out infinite;
+        }
+
+        .blob-left-animate {
+            animation: float-blob-left 28s ease-in-out infinite;
+        }
+
+        /* ================= FLOATING BADGES ANIMATIONS ================= */
+        @keyframes float-organic-1 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(5px, -12px); }
+            66% { transform: translate(-5px, -6px); }
+        }
+        @keyframes float-organic-2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-8px, -15px); }
+            66% { transform: translate(6px, -5px); }
+        }
+        @keyframes float-organic-3 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(6px, -10px); }
+            66% { transform: translate(-8px, 5px); }
+        }
+
+        .float-1 { animation: float-organic-1 6.5s ease-in-out infinite; }
+        .float-2 { animation: float-organic-2 7.5s ease-in-out infinite 1s; }
+        .float-3 { animation: float-organic-3 6s ease-in-out infinite 2s; }
+        .float-4 { animation: float-organic-2 8s ease-in-out infinite 1.5s; }
+
+        /* Navbar scroll state */
+        .nav-scrolled {
+            background-color: rgba(241, 232, 214, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        /* Elegant Entrance Animations */
+        @keyframes fadeUpReveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-reveal {
+            opacity: 0;
+            animation: fadeUpReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-900 { animation-delay: 900ms; }
+    </style>
+</head>
+<body class="text-brand-dark font-sans antialiased overflow-x-hidden relative">
+
+    <!-- Navigation (Clean layout matching "wordpress homepage 1st part.jpeg") -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-6 lg:px-16 flex items-center justify-between">
+        
+        <!-- Left Side: Logo Area Only -->
+        <div class="flex flex-col items-start cursor-pointer">
+            <h1 class="font-serif text-[26px] font-bold tracking-tight text-[#2c2925] leading-none">AYURIMA</h1>
+            <span class="text-[8px] uppercase tracking-[0.3em] text-[#716d66] mt-1 font-semibold ml-0.5">BY JAAVAR</span>
+        </div>
+
+        <!-- Right Side: Nav Links & CTA -->
+        <div class="flex items-center space-x-10">
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#" class="text-[12px] font-semibold tracking-[0.15em] uppercase text-[#3f3c38] hover:text-brand-accent transition-colors">About</a>
+                <a href="#" class="text-[12px] font-semibold tracking-[0.15em] uppercase text-[#3f3c38] hover:text-brand-accent transition-colors">Products</a>
+                <a href="#" class="text-[12px] font-semibold tracking-[0.15em] uppercase text-[#3f3c38] hover:text-brand-accent transition-colors">Jaavar</a>
+                <a href="#" class="text-[12px] font-semibold tracking-[0.15em] uppercase text-[#3f3c38] hover:text-brand-accent transition-colors">Blog</a>
+                <a href="#" class="text-[12px] font-semibold tracking-[0.15em] uppercase text-[#3f3c38] hover:text-brand-accent transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="#" class="hidden md:inline-block bg-[#c4704e] text-[#2c2925] text-[12px] font-bold tracking-[0.15em] uppercase py-3.5 px-8 rounded-full hover:opacity-90 transition-opacity shadow-sm">
+                Shop Now
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-brand-dark p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
+        
+        <!-- ================= ABSTRACT BACKGROUND BLOBS ================= -->
+        <!-- Right Greenish Blob with Organic Floating -->
+        <div class="absolute top-[0%] right-[-8%] w-[55vw] max-w-[850px] h-auto z-0 opacity-80 pointer-events-none blob-right-animate animate-reveal">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <!-- Soft, rounded leaf-like blob matching the screenshot -->
+                <path fill="#e1e6ce" d="M45.7,-76.4C58.9,-69.1,69,-55.4,76.5,-40.4C84,-25.4,88.9,-9.2,87.3,6.3C85.7,21.8,77.5,36.5,66.5,48.7C55.5,60.9,41.7,70.5,26.4,76.1C11.1,81.7,-5.7,83.2,-21.5,79.1C-37.3,74.9,-52.1,65,-63.3,52.3C-74.5,39.6,-82.1,24.1,-84.9,7.9C-87.6,-8.3,-85.4,-25.1,-77,-39.3C-68.6,-53.4,-54,-64.8,-39.1,-71.4C-24.2,-78,-9,-79.8,6.8,-80.1C22.6,-80.5,41.6,-79.6,45.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <!-- Left Tan/Peach Blob with Organic Floating -->
+        <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] max-w-[750px] h-auto z-0 opacity-85 pointer-events-none blob-left-animate animate-reveal delay-300">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <!-- Soft wavy peach blob matching the screenshot -->
+                <path fill="#eedcb2" d="M41.5,-71C54.2,-63.6,65.2,-52.5,73.5,-39.3C81.8,-26.1,87.4,-10.8,86.8,4.2C86.1,19.2,79.3,33.9,69.5,45.9C59.7,57.9,47,67.2,32.7,73C18.4,78.8,2.5,81.1,-12.6,79.2C-27.7,77.3,-41.9,71.2,-53.6,61.6C-65.3,52,-74.5,38.9,-79.8,24.3C-85.1,9.7,-86.5,-6.4,-81.6,-20.5C-76.7,-34.6,-65.5,-46.8,-52.2,-54.6C-38.9,-62.4,-23.5,-65.8,-8.4,-67.2C6.7,-68.6,28.8,-78.4,41.5,-71Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <!-- ========================================================== -->
+
+        <!-- Central Glow overlay to blend the blobs -->
+        <div class="absolute inset-0 hero-glow z-0 pointer-events-none animate-reveal"></div>
+
+        <div class="max-w-4xl mx-auto text-center flex flex-col items-center z-10 relative mt-8">
+            
+            <p class="animate-reveal delay-100 text-[10px] font-bold tracking-[0.2em] text-[#8ca18e] uppercase mb-8 flex items-center">
+                <span class="w-10 h-[1px] bg-[#8ca18e] mr-4 opacity-40"></span>
+                Rooted in nature &middot; Crafted with intention
+                <span class="w-10 h-[1px] bg-[#8ca18e] ml-4 opacity-40"></span>
+            </p>
+
+            <h1 class="font-serif text-[#2c2925] flex flex-col items-center mb-8 w-full">
+                <div class="animate-reveal delay-300 text-[60px] md:text-[84px] leading-[1.05] tracking-tight">
+                    The Essence of <span class="italic text-[#c4704e]">Life</span>
+                </div>
+                <div class="animate-reveal delay-500 text-[56px] md:text-[80px] italic text-[#c4704e] leading-[0.8] my-3 md:my-4">
+                    &amp;
+                </div>
+                <div class="animate-reveal delay-700 text-[60px] md:text-[84px] leading-[1.05] tracking-tight">
+                    Wellness
+                </div>
+            </h1>
+
+            <p class="animate-reveal delay-900 text-[#55524d] text-[15px] max-w-[580px] leading-[1.7] mb-12 font-light">
+                At AYURIMA, we embrace the timeless wisdom of Ayurveda to nurture balance, vitality, and mindful living. Rooted in nature and crafted with intention, our products are designed to restore harmony between body, mind, and spirit.
+            </p>
+
+            <div class="animate-reveal delay-900 flex flex-col sm:flex-row items-center gap-5">
+                <a href="#" class="bg-[#c4704e] text-white text-[11px] font-bold tracking-[0.12em] uppercase py-[16px] px-10 rounded-full hover:opacity-90 transition-all w-full sm:w-auto shadow-sm">
+                    Explore Products
+                </a>
+                <a href="#" class="bg-transparent border border-[#2c2925] text-[#2c2925] text-[11px] font-bold tracking-[0.12em] uppercase py-[16px] px-10 rounded-full hover:bg-[#2c2925] hover:text-white transition-all w-full sm:w-auto">
+                    Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meaning Section -->
+    <section class="py-24 px-6 lg:px-14 max-w-[1100px] mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-6 items-center">
+            
+            <!-- Left Column: Content -->
+            <div class="lg:pr-8">
+                <!-- Exact subtitle with em dashes -->
+                <p class="text-[10px] font-bold tracking-[0.2em] text-[#8ca18e] uppercase mb-4 flex items-center">
+                    <span class="mr-2 opacity-70">&mdash;</span>
+                    Sanskrit Roots
+                    <span class="ml-2 opacity-70">&mdash;</span>
+                </p>
+
+                <!-- Title -->
+                <h2 class="font-serif text-[42px] lg:text-[46px] text-[#2c2925] leading-[1.1] mb-8">
+                    The Meaning of<br>AYURIMA
+                </h2>
+
+                <div class="space-y-6 text-[#55524d] text-[14px] font-light leading-[1.7] mb-10 max-w-[460px]">
+                    <p>"Ayurima" is a fusion of two meaningful elements: <strong class="font-semibold text-[#3d3a36]">Ayur</strong> and <strong class="font-semibold text-[#3d3a36]">Ima</strong>.</p>
+                    <p><strong class="font-semibold text-[#3d3a36]">Ayur</strong> comes from Sanskrit, meaning <em>life</em> or <em>longevity</em>. It represents holistic wellness, natural healing, and the ancient traditions of Ayurveda that nurture vitality from within.</p>
+                    <p><strong class="font-semibold text-[#3d3a36]">Ima</strong> signifies <em>essence, source</em>, and a nurturing presence &mdash; symbolizing care, balance, and inner strength.</p>
+                    <p>Together, <strong class="font-semibold text-[#3d3a36]">AYURIMA represents the essence of life</strong> &mdash; a philosophy rooted in natural balance, well-being, and mindful living.</p>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[500px]">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-[18px] p-5 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border-l-[3px] border-[#c47353] hover:shadow-[0_8px_30px_rgba(196,115,83,0.1)] transition-shadow">
+                        <h3 class="font-serif text-[20px] text-[#c47353] font-semibold mb-2">Ayur</h3>
+                        <p class="text-[12px] text-[#55524d] leading-[1.6] font-light">Life · Longevity · Holistic Wellness · Ancient Healing</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-[18px] p-5 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border-l-[3px] border-[#c47353] hover:shadow-[0_8px_30px_rgba(196,115,83,0.1)] transition-shadow">
+                        <h3 class="font-serif text-[20px] text-[#c47353] font-semibold mb-2">Ima</h3>
+                        <p class="text-[12px] text-[#55524d] leading-[1.6] font-light">Essence · Source · Nurturing Presence · Inner Strength</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Graphic -->
+            <div class="relative w-full max-w-[460px] mx-auto aspect-square flex items-center justify-center mt-8 lg:mt-0">
+                
+                <!-- Exact Background Radial Gradient (Reduced Size to 80%) -->
+                <div class="absolute w-[80%] h-[80%] graphic-glow rounded-full z-0 opacity-90 shadow-[0_0_80px_rgba(220,229,205,0.4)]"></div>
+
+                <!-- Center Branding ("AYU" [Leaf Circle] "MA") -->
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="flex items-center">
+                        <span class="font-serif text-[42px] font-medium text-[#2c2925] tracking-wide">AYU</span>
+                        
+                        <!-- Leaf Badge covering center -->
+                        <div class="w-[56px] h-[56px] bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center justify-center relative z-20 mx-[-6px] hover:scale-105 transition-transform cursor-pointer float-1">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform -rotate-12">
+                                <path d="M12 20V10C12 10 9 9 7 6C7 6 11 6 12 10ZM12 15C12 15 15 14 17 11C17 11 13 11 12 15ZM12 10C12 10 10 7 10 4C10 4 14 4 12 10Z" fill="#8DB58A"/>
+                            </svg>
+                        </div>
+                        
+                        <span class="font-serif text-[42px] font-medium text-[#7c9c82] tracking-wide">MA</span>
+                    </div>
+                    <span class="font-sans text-[9px] font-bold tracking-[0.3em] text-[#55524d] uppercase mt-2">Essence of Life</span>
+                </div>
+
+                <!-- Floating Badges Container -->
+                <div class="absolute inset-0 z-20 pointer-events-none">
+
+                    <!-- Water Drop (Top Right) -->
+                    <div class="absolute top-[18%] right-[10%] float-2">
+                        <div class="w-[52px] h-[52px] bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center justify-center pointer-events-auto cursor-pointer transition-transform hover:scale-110">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="waterGrad" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#80C4FF" />
+                                        <stop offset="1" stop-color="#3A82F7" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 21.5C8.68629 21.5 6 18.8137 6 15.5C6 11.5 12 2.5 12 2.5C12 2.5 18 11.5 18 15.5C18 18.8137 15.3137 21.5 12 21.5Z" fill="url(#waterGrad)"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Pink Flower (Bottom Left) -->
+                    <div class="absolute bottom-[28%] left-[6%] float-3">
+                        <div class="w-[52px] h-[52px] bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center justify-center pointer-events-auto cursor-pointer transition-transform hover:scale-110">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="flowerGrad" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF8A9A" />
+                                        <stop offset="1" stop-color="#F2546D" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="#FFE2A0"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8ZM15.8038 10.7639C16.3155 9.18844 17.9897 8.3439 19.5651 8.85566C21.1406 9.36741 21.9851 11.0415 21.4734 12.617C20.9616 14.1925 19.2875 15.037 17.7121 14.5252C16.1366 14.0135 15.292 12.3394 15.8038 10.7639ZM13.8038 16.9282C15.3793 17.44 16.2238 19.1141 15.7121 20.6896C15.2003 22.2651 13.5262 23.1096 11.9507 22.5979C10.3752 22.0861 9.53073 20.412 10.0425 18.8365C10.5542 17.2611 12.2283 16.4165 13.8038 16.9282ZM8.19615 16.9282C6.62069 16.4165 4.94657 17.2611 4.43482 18.8365C3.92307 20.412 4.7676 22.0861 6.34306 22.5979C7.91852 23.1096 9.59264 22.2651 10.1044 20.6896C10.6161 19.1141 9.77161 17.44 8.19615 16.9282ZM8.19615 10.7639C7.6844 12.3394 6.01028 13.1839 4.43482 12.6721C2.85936 12.1604 2.01483 10.4863 2.52658 8.91083C3.03833 7.33537 4.71245 6.49084 6.28791 7.00259C7.86337 7.51434 8.7079 9.18844 8.19615 10.7639Z" fill="url(#flowerGrad)"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Sun (Bottom Right) -->
+                    <div class="absolute bottom-[20%] right-[6%] float-4">
+                        <div class="w-[52px] h-[52px] bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center justify-center pointer-events-auto cursor-pointer transition-transform hover:scale-110">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="sunGrad" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FFC159" />
+                                        <stop offset="1" stop-color="#FF9331" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" fill="url(#sunGrad)"/>
+                                <path d="M12 2V4M12 20V22M4 12H2M22 12H20M4.92893 4.92893L6.34315 6.34315M17.6569 17.6569L19.0711 19.0711M4.92893 19.0711L6.34315 17.6569M17.6569 6.34315L19.0711 4.92893" stroke="url(#sunGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JavaScript for Navbar scroll effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
